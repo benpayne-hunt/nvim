@@ -132,20 +132,6 @@ require('lazy').setup {
     end,
   },
 
-  -- Github copilot
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    config = function()
-      require('copilot').setup {}
-    end,
-  },
-
-  {
-    'zbirenbaum/copilot-cmp',
-    config = function()
-      require('copilot_cmp').setup()
-    end,
-  },
+  -- Lazy git
+  'kdheepak/lazygit.nvim',
 }
