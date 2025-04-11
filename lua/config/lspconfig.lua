@@ -12,6 +12,7 @@ mason_lspconfig.setup {
     'astro',
     'cssls',
     'emmet_language_server',
+    'gopls',
     'html',
     'jsonls',
     'lua_ls',
