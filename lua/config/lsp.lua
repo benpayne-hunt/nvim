@@ -1,0 +1,66 @@
+local characters = require("utils.characters")
+
+-- Turn off logging
+vim.lsp.set_log_level("off")
+
+-- Adjust diagnostics appearance
+vim.diagnostic.config({
+    underline = true,
+    signs = false,
+    severity_sort = true,
+})
+
+-- Setup LSP autocompletion when LSP attached
+vim.lsp.config("*", {
+    on_attach = function(client, bufnr)
+        if client.server_capabilities.completionProvider then
+            client.server_capabilities.completionProvider.triggerCharacters =
+                characters.all
+        end
+
+        vim.lsp.completion.enable(true, client.id, bufnr, {
+            autotrigger = true,
+            convert = function(item)
+                return { abbr = item.label:gsub("%b()", "") }
+            end,
+        })
+    end,
+})
+
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+        },
+    },
+})
+
+vim.lsp.config("vtsls", {
+    filetypes = {
+        "typescript",
+        "javascript",
+        "javascriptreact",
+        "typescriptreact",
+        "vue",
+    },
+    settings = {
+        vtsls = {
+            tsserver = {
+                globalPlugins = {
+                    {
+                        name = "@vue/typescript-plugin",
+                        location = vim.fn.stdpath("data")
+                            .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+                        languages = {
+                            "vue",
+                        },
+                        configNamespace = "typescript",
+                        enableForWorkspaceTypeScriptVersions = true,
+                    },
+                },
+            },
+        },
+    },
+})
