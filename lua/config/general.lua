@@ -1,7 +1,3 @@
--- Set mapleader key
-vim.g.mapleader = " "
-
--- Set options
 vim.opt.cmdheight = 1
 vim.opt.completeopt = "preview"
 vim.opt.errorbells = false
@@ -27,6 +23,3 @@ vim.opt.titlestring = "nvim - %t"
 vim.opt.visualbell = false
 vim.opt.wrap = false
 vim.opt.writebackup = false
-
-vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true })
-vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true })

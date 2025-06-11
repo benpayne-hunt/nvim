@@ -1,5 +1,8 @@
-------------------------------------------------------------
--- You are viewing the ~/.config/nvim/init.lua of Ben Payne Hunt
-------------------------------------------------------------
+require("config.prerequisites")
+require("config.general")
+require("config.keybinds")
 
-require 'config.setup'
+require("config.lazy")
+
+require("config.diagnostics")
+require("config.notes")
