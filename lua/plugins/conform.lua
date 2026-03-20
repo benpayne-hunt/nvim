@@ -1,43 +1,52 @@
-local formatters = {
-    ["*"] = { "squeeze_blanks", "trim_whitespace", "trim_newlines" },
-    lua = { "stylua" },
-    php = { "pint" },
-    blade = { "blade-formatter" },
-}
-
-for _, fileType in ipairs({
-    "css",
-    "html",
-    "json",
-    "jsonc",
-    "scss",
-    "svg",
-    "xml",
-}) do
-    formatters[fileType] = { "prettierd" }
-end
-
-for _, fileType in ipairs({
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "astro",
-    "svelte",
-    "vue",
-}) do
-    formatters[fileType] = { "eslint_d", "prettierd" }
-end
-
 return {
-    "stevearc/conform.nvim",
-    event = "BufWritePre",
-    opts = {
-        formatters_by_ft = formatters,
-        format_on_save = {
-            lsp_format = "fallback",
-            timeout_ms = 10000,
-        },
-        notify_on_error = true,
+  "stevearc/conform.nvim",
+  opts = {
+    formatters = {
+      jq = {
+        command = "jq",
+        args = { "--indent", "4", "." },
+        stdin = true,
+      },
     },
+    formatters_by_ft = {
+      ["*"] = { "squeeze_blanks", "trim_whitespace", "trim_newlines" },
+
+      lua = { "stylua" },
+      php = { "pint" },
+      blade = { "blade-formatter" },
+
+      json = function(bufnr)
+        local name = vim.api.nvim_buf_get_name(bufnr)
+        if name:match("fact_find_schema%.json$") then
+          return { "jq" }
+        end
+        return { "prettierd" }
+      end,
+      jsonc = { "prettierd" },
+      css = { "prettierd" },
+      scss = { "prettierd" },
+      html = { "prettierd" },
+      xml = { "prettierd" },
+      svg = { "prettierd" },
+
+      javascript = { "eslint_d", "prettierd" },
+      typescript = { "eslint_d", "prettierd" },
+      javascriptreact = { "eslint_d", "prettierd" },
+      typescriptreact = { "eslint_d", "prettierd" },
+      astro = { "eslint_d", "prettierd" },
+      svelte = { "eslint_d", "prettierd" },
+      vue = { "eslint_d", "prettierd" },
+
+      -- php = function(bufnr)
+      -- 	-- Run LSP formatter first
+      -- 	vim.lsp.buf.format({ bufnr = bufnr })
+      -- 	return { "pint" }
+      -- end,
+    },
+    format_on_save = {
+      lsp_format = "fallback",
+      timeout_ms = 10000,
+    },
+    notify_on_error = true,
+  },
 }

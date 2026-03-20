@@ -10,6 +10,8 @@ return {
         "css",
         "javascript",
         "typescript",
+        "php",
+        "phpdoc",
       },
       highlight = { enable = true },
       ignore_install = {},

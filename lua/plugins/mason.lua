@@ -17,19 +17,20 @@ return {
             "prettierd",
             "stylua",
 
-            -- LSP
-            "astro-language-server",
-            "css-lsp",
-            "emmet-language-server",
-            "html-lsp",
-            "json-lsp",
-            "lua-language-server",
-            "phpactor",
-            "svelte-language-server",
-            "tailwindcss-language-server",
-            "vtsls",
-            "vue-language-server",
-        }
+      -- LSP
+      "astro-language-server",
+      "css-lsp",
+      "emmet-language-server",
+      "eslint-lsp",
+      "html-lsp",
+      "json-lsp",
+      "lua-language-server",
+      "intelephense",
+      "svelte-language-server",
+      "tailwindcss-language-server",
+      "vtsls",
+      "vue-language-server",
+    }
 
         registry.refresh(function()
             local to_install = {}
