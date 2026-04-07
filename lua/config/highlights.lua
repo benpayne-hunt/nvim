@@ -14,13 +14,13 @@ function M.set_highlights()
         -- Statusline base
         { "StatusLine", { fg = hl("CursorColumn").fg, bg = sl_bg } },
 
-        -- Mode pills (colored fg, statusline bg)
-        { "SLModeNormal",   { fg = hl("Function").fg,        bg = sl_bg, bold = true } },
-        { "SLModeInsert",   { fg = hl("String").fg,          bg = sl_bg, bold = true } },
-        { "SLModeVisual",   { fg = hl("Special").fg,         bg = sl_bg, bold = true } },
-        { "SLModeReplace",  { fg = hl("DiagnosticError").fg, bg = sl_bg, bold = true } },
-        { "SLModeCommand",  { fg = hl("DiagnosticWarn").fg,  bg = sl_bg, bold = true } },
-        { "SLModeTerminal", { fg = hl("DiagnosticInfo").fg,  bg = sl_bg, bold = true } },
+        -- Mode pills (statusline bg fg on colored bg, same style as SLPosition)
+        { "SLModeNormal",   { fg = sl_bg, bg = hl("Function").fg,        bold = true } },
+        { "SLModeInsert",   { fg = sl_bg, bg = hl("String").fg,          bold = true } },
+        { "SLModeVisual",   { fg = sl_bg, bg = hl("Special").fg,         bold = true } },
+        { "SLModeReplace",  { fg = sl_bg, bg = hl("DiagnosticError").fg, bold = true } },
+        { "SLModeCommand",  { fg = sl_bg, bg = hl("DiagnosticWarn").fg,  bold = true } },
+        { "SLModeTerminal", { fg = sl_bg, bg = hl("DiagnosticInfo").fg,  bold = true } },
 
         -- Left section
         { "SLBranch",    { fg = hl("Comment").fg,       bg = sl_bg } },

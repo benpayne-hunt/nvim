@@ -213,8 +213,16 @@ local function get_filetype()
     local ft = vim.bo.filetype
     if ft == "" then return "" end
     local ver = get_runtime_version(ft)
-    local label = ver ~= "" and (ft .. " " .. ver) or ft
     local hl = get_ft_hl(ft)
+
+    local icon = ""
+    local ok, devicons = pcall(require, "nvim-web-devicons")
+    if ok then
+        local i = devicons.get_icon_by_filetype(ft, { default = false })
+        if i then icon = i .. " " end
+    end
+
+    local label = icon .. (ver ~= "" and (ft .. " " .. ver) or ft)
     return "  %#" .. hl .. "# " .. label .. " %*"
 end
 
