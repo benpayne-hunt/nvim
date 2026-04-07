@@ -1,5 +1,6 @@
 return {
     "RRethy/base16-nvim",
+    lazy = true,
     config = function()
         require("base16-colorscheme").with_config({
             telescope = false,
@@ -10,8 +11,5 @@ return {
             illuminate = false,
             dapui = false,
         })
-
-        -- Overwritten by /lua/config/colorscheme.lua
-        vim.cmd.colorscheme("base16-ayu-dark")
     end,
 }

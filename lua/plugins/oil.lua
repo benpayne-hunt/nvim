@@ -13,31 +13,29 @@ return {
             ["<C-c>"] = false,
             ["<Esc><Esc>"] = { "actions.close", mode = "n" },
         },
-        float = {
-            max_width = 0.75,
-            max_height = 0.75,
-            border = "rounded",
+        win_options = {
+            winbar = "%!v:lua.require('oil').get_current_dir()",
         },
     },
     keys = {
         {
             "<C-b>",
             function()
-                require("oil").toggle_float(vim.fn.getcwd())
+                require("oil").open()
             end,
-            desc = "Open current working directory",
+            desc = "Open parent directory of current file",
         },
         {
             "<C-S-b>",
             function()
-                require("oil").toggle_float()
+                require("oil").open()
             end,
             desc = "Open parent directory",
         },
         {
             "<C-S-n>",
             function()
-                require("oil").toggle_float(vim.env.HOME .. "/Notes")
+                require("oil").open(vim.env.HOME .. "/Notes")
             end,
             desc = "Open notes directory",
         },

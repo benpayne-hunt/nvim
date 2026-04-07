@@ -25,6 +25,11 @@ vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y")
 vim.keymap.set({ "n", "v" }, "<leader>yy", "\"+yy")
 vim.keymap.set({ "n", "v" }, "<leader>p", "\"+p")
 vim.keymap.set({ "n", "v" }, "<leader>P", "\"+P")
+vim.keymap.set("n", "<leader>yf", function()
+    local path = vim.fn.expand("%:~:.")
+    vim.fn.setreg("+", path)
+    vim.notify(path)
+end, { desc = "Copy relative file path" })
 
 -- Move down popup list with tab
 vim.keymap.set("i", "<Tab>", function()

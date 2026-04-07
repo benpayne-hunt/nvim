@@ -6,6 +6,8 @@ vim.opt.undofile = true -- keep undo history between sessions
 vim.opt.fileformats = "unix" -- only recognize unix line endings (lf)
 
 -- UI
+vim.opt.number = true -- show line numbers
+vim.opt.relativenumber = true -- show relative line numbers
 vim.o.signcolumn = "yes:1" -- Force 1 character signcolumn (used by GitSigns etc)
 vim.o.winborder = "rounded" -- Set default border to rounded
 vim.opt.fillchars = { eob = " " } -- replace ~ at end-of-buffer with spaces
@@ -35,7 +37,6 @@ vim.opt.completeopt = {
 }
 
 -- Performance
-vim.opt.lazyredraw = true -- don't redraw during macros/commands for speed
 vim.opt.redrawtime = 1000 -- max time (ms) for syntax highlighting redraw
 vim.opt.synmaxcol = 120 -- stop syntax highlighting after 120 columns
 

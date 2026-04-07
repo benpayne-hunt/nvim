@@ -15,5 +15,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         if colorscheme then
             vim.fn.writefile({ colorscheme }, colorscheme_file)
         end
+
+        require("utils.ghostty").sync()
     end,
 })
