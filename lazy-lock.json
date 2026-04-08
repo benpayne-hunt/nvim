@@ -28,6 +28,8 @@
   "precognition.nvim": { "branch": "main", "commit": "06e4bfa339ddc55a49fd1adcbb403f6e0855c43b" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "aab6caaffd79b8def22ec4320a5344f7c42f58d2" },
   "rose-pine": { "branch": "main", "commit": "cf2a288696b03d0934da713d66c6d71557b5c997" },
+  "smear-cursor.nvim": { "branch": "main", "commit": "c85bdbb25db096fbcf616bc4e1357bd61fe2c199" },
   "telescope.nvim": { "branch": "master", "commit": "7ef4d6dccb78ee71e552bbd866176762ad328afa" },
-  "tiny-glimmer.nvim": { "branch": "main", "commit": "932e6c2cc4a43ce578f007db1f8f61ad6798f938" }
+  "tiny-glimmer.nvim": { "branch": "main", "commit": "932e6c2cc4a43ce578f007db1f8f61ad6798f938" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" }
 }
